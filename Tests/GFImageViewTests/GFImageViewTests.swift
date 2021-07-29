@@ -6,6 +6,6 @@ final class GFImageViewTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(GFImageView().text, "Hello, World!")
+        //XCTAssertEqual(GFImageView().text, "Hello, World!")
     }
 }

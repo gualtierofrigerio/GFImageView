@@ -6,12 +6,16 @@
 
 import SwiftUI
 
+/// Use this view to load a remote image
+/// The view is compatible with iOS 13 and uses AsyncImage only on 15
+/// You can specify a url for the image and an optional placeholder
+/// to display in case of an error loading the remote image
 @available (iOS 13.0, *)
-struct GFImageView: View {
+public struct GFImageView: View {
     var imageUrl: URL?
     var placeHolderImage: Image?
     
-    var body: some View {
+    public var body: some View {
         if let url = imageUrl {
             if #available(iOS 15, *) {
                 AsyncImage(url: url) { phase in

@@ -16,7 +16,7 @@ public class RemoteImageLoader: ObservableObject {
         }
     }
     
-    init(url: URL) {
+    public init(url: URL) {
         loadFromURL(url)
     }
     

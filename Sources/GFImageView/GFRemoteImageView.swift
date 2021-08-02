@@ -6,16 +6,18 @@
 
 import SwiftUI
 
+/// Load a remote image
+/// You can use it in iOS 13 as it doesn't call AsyncImage
 @available (iOS 13.0, *)
-struct RemoteImageView: View {
+public struct RemoteImageView: View {
     @ObservedObject var imageLoader: RemoteImageLoader
     @State var image:UIImage = UIImage()
     
-    init(url: URL) {
+    public init(url: URL) {
         imageLoader = RemoteImageLoader(url: url)
     }
     
-    var body: some View {
+    public var body: some View {
         VStack {
             Image(uiImage: image)
                 .resizable()

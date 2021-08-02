@@ -20,6 +20,8 @@ public struct GFImageView: View {
         self.placeHolderImage = placeHolderImage
     }
     
+    public init() { }
+    
     public var body: some View {
         if let url = imageUrl {
             if #available(iOS 15, *) {

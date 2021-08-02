@@ -8,7 +8,7 @@ import Combine
 import Foundation
 
 @available(iOS 13.0, *)
-class RemoteImageLoader: ObservableObject {
+public class RemoteImageLoader: ObservableObject {
     var didChange = PassthroughSubject<Data, Never>()
     var data = Data() {
         didSet {

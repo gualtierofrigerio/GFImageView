@@ -15,7 +15,10 @@ public struct GFImageView: View {
     var imageUrl: URL?
     var placeHolderImage: Image?
     
-    public init() {}
+    public init(imageUrl: URL?, placeHolderImage: Image? ) {
+        self.imageUrl = imageUrl
+        self.placeHolderImage = placeHolderImage
+    }
     
     public var body: some View {
         if let url = imageUrl {

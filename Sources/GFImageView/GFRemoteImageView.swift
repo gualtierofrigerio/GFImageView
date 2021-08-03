@@ -10,11 +10,11 @@ import SwiftUI
 /// You can use it in iOS 13 as it doesn't call AsyncImage
 @available (iOS 13.0, *)
 public struct RemoteImageView: View {
-    @ObservedObject var imageLoader: RemoteImageLoader
+    @StateObject var imageLoader = GFRemoteImageLoader()
     @State var image:UIImage = UIImage()
     
     public init(url: URL) {
-        imageLoader = RemoteImageLoader(url: url)
+        imageUrl = url
     }
     
     public var body: some View {
@@ -22,10 +22,16 @@ public struct RemoteImageView: View {
             Image(uiImage: image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-        }.onReceive(imageLoader.didChange) { data in
+        }
+        .onAppear(perform: {
+            imageLoader.load(url: imageUrl)
+        })
+        .onReceive(imageLoader.didChange) { data in
             self.image = UIImage(data: data) ?? UIImage()
         }
     }
+    
+    private var imageUrl: URL
 }
 
 @available (iOS 13.0, *)

@@ -16,9 +16,17 @@ public class RemoteImageLoader: ObservableObject {
         }
     }
     
+    public init() { }
+    
     public init(url: URL) {
         loadFromURL(url)
     }
+    
+    public func load(url: URL) {
+        loadFromURL(url)
+    }
+    
+    // MARK: - Private
     
     private func loadFromURL(_ url: URL) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
